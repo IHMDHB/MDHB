@@ -5,56 +5,216 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MDHB Services</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #F5F7FA; color: #2C2F33; }
-    header { background: #007BFF; color: white; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
-    header img { height: 40px; }
-    nav a { color: white; margin-left: 1rem; text-decoration: none; font-weight: bold; }
-    .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #007BFF, #17CFC4); color: white; }
-    .hero img { max-width: 100px; margin-bottom: 1rem; }
-    section { padding: 2rem; text-align: center; }
-    .cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-    .card { background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); padding: 1rem; max-width: 300px; }
-    .card img { width: 100%; border-radius: 6px; margin-bottom: 1rem; }
-    footer { background: #2C2F33; color: white; padding: 2rem; text-align: center; }
+    :root {
+      --electric-blue: #007BFF;
+      --charcoal-grey: #2C2F33;
+      --cool-white: #F5F7FA;
+      --teal: #17CFC4;
+      --silver-grey: #D1D5DB;
+      --neon-green: #39FF14;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--cool-white);
+      color: var(--charcoal-grey);
+    }
+
+    header {
+      background-color: var(--electric-blue);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--electric-blue), var(--teal));
+      padding: 5rem 2rem;
+      text-align: center;
+      color: white;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--electric-blue);
+      margin: 3rem 0 1rem;
+    }
+
+    .services, .portfolio, .why-us {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .service, .portfolio-item, .why-item {
+      background: white;
+      border: 1px solid var(--silver-grey);
+      border-radius: 8px;
+      padding: 1.5rem;
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .service h2, .why-item h3 {
+      color: var(--teal);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--silver-grey);
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: 1px solid var(--silver-grey);
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--electric-blue);
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: var(--charcoal-grey);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .socials a {
+      color: var(--neon-green);
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="MDHB Logo">
+    <div><strong>MDHB SERVICES</strong></div>
     <nav>
       <a href="#">Home</a>
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#why">Why Us</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
-    <img src="logo.png" alt="MDHB Logo">
     <h1>Modern AV & Network Solutions</h1>
     <p>Professional Audio Visual, Network, and Video Conferencing services tailored to your business.</p>
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card"><img src="av.jpg" alt="Audio Visual"><h3>Audio Visual</h3><p>Immersive sound and visuals for all your spaces.</p></div>
-      <div class="card"><img src="network.jpg" alt="Networking"><h3>Networking</h3><p>Reliable, secure wired and wireless networking.</p></div>
-      <div class="card"><img src="vc.jpg" alt="Video Conferencing"><h3>Video Conferencing</h3><p>Simplify communication with pro-grade systems.</p></div>
+  <h2 class="section-title" id="services">Our Services</h2>
+  <section class="services">
+    <div class="service">
+      <h2>Audio Visual</h2>
+      <p>Clear, immersive sound and visuals for all your spaces.</p>
+    </div>
+    <div class="service">
+      <h2>Networking</h2>
+      <p>Structured cabling and reliable network systems.</p>
+    </div>
+    <div class="service">
+      <h2>Video Conferencing</h2>
+      <p>Seamless conferencing for professional communication.</p>
     </div>
   </section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="cards">
-      <div class="card"><img src="office.jpg" alt="Office Setup"><h3>Office AV Setup</h3><p>Complete AV installation for corporate HQ.</p></div>
-      <div class="card"><img src="boardroom.jpg" alt="Boardroom"><h3>Boardroom Fitout</h3><p>State-of-the-art conferencing systems.</p></div>
-      <div class="card"><img src="networking.jpg" alt="Networking Overhaul"><h3>Network Overhaul</h3><p>Rewired and optimised for performance.</p></div>
+  <h2 class="section-title" id="portfolio">Our Work</h2>
+  <section class="portfolio">
+    <div class="portfolio-item">
+      <h3>Office AV Setup</h3>
+      <p>Full AV integration for a corporate HQ in London.</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>Conference Room Fitout</h3>
+      <p>State-of-the-art conferencing tech for boardrooms.</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>Network Overhaul</h3>
+      <p>Rewired and optimised IT infrastructure for a multi-floor office.</p>
     </div>
   </section>
+
+  <h2 class="section-title" id="why">Why Choose Us</h2>
+  <section class="why-us">
+    <div class="why-item">
+      <h3>Experienced Team</h3>
+      <p>Over 20 years of industry expertise.</p>
+    </div>
+    <div class="why-item">
+      <h3>Custom Solutions</h3>
+      <p>Tailored tech for your exact needs.</p>
+    </div>
+    <div class="why-item">
+      <h3>Support & Maintenance</h3>
+      <p>We don’t disappear after install—we support you long-term.</p>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="contact">Get in Touch</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 
   <footer>
-    <p>&copy; 2025 MDHB Services</p>
+    <p>&copy; 2025 MDHB Services. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
   </footer>
 </body>
 </html>
